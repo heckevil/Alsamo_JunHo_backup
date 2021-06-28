@@ -1,21 +1,44 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2021-06-14
-  Time: 오후 1:32
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
-<head>
-    <title>글쓰기</title>
-</head>
-<body>
-    <form action="/board/write" method="post">
-        제목 : <input type="text" name="title">
-        내용 : <textarea name="cmt"></textarea>
-    </form>
+<%@ taglib prefix="if" uri="http://java.sun.com/jsp/jstl/core" %>
 
-</body>
-</html>
+
+<form action="
+<c:choose>
+    <c:when test="${empty param.modify}">write</c:when>
+    <c:otherwise>modify</c:otherwise>
+</c:choose>
+" method="post">
+<c:if test="${empty param.modify}">
+    <c:choose>
+        <c:when test="${empty requestScope.board}">
+        <select name="bcd">
+            <c:forEach var="category" items="${requestScope.categoryList}" begin="1">
+                <c:choose>
+                    <c:when test="${category.bcd eq param.bcd}">
+                        <option value="${category.bcd}" selected="selected">${category.bnm}</option>
+                    </c:when>
+                    <c:otherwise>
+                        <option value="${category.bcd}">${category.bnm}</option>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+        </select>
+        </c:when>
+        <c:otherwise>
+            <input type="hidden" name="bcd" value="${requestScope.board.bcd}">
+            <input type="hidden" name="bidx" value="${requestScope.board.bidx}">
+            <input type="hidden" name="bord" value="${requestScope.board.bord}">
+            <input type="hidden" name="bdept" value="${requestScope.board.bdept}">
+        </c:otherwise>
+    </c:choose>
+</c:if>
+    <c:if test="${not empty param.modify}">
+        <input type="hidden" name="uno" value="${requestScope.board.uno}">
+        <input type="hidden" name="bno" value="${param.bno}">
+        <input type="hidden" name="bpw" value="${requestScope.bpw}">
+    </c:if>
+    <input type="text" name="btitle" placeholder="제목">
+    <textarea name="bctnt" placeholder="내용"></textarea>
+    <input type="submit" value="글쓰기">
+</form>

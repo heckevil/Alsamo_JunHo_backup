@@ -1,28 +1,15 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2021-06-11
-  Time: 오후 4:20
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
-
-
-<h3>바로가기(개발.ver)</h3>
-
-<a href="/user/login"><button>로그인</button></a>
+<div><h3>로그인</h3></div>
+<a href="/board/list"><button>홈</button></a>
 <a href="/user/join"><button>회원가입</button></a>
 
-
-<%-- ToDo List
-    - 이메일 중복제거
-    - 이메일 양식 만들기
-
---%>
+<h1> 힘내즈아아아아아아아ㅏ아아아</h1>
+<h2> todo : css 수정</h2>
 </body>
 </html>

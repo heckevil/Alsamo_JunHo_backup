@@ -19,8 +19,8 @@
 <body>
 <h1>로그인</h1>
 <div><h3>${errMsg}</h3></div>
-<idv><h3>${msg}</h3></idv>
-<idv><h3>${authkeyErr}</h3></idv>
+<idv><h3>${requestScope.msg}</h3></idv>
+<div><h3>${authkeyErr}</h3></div>
 <div>
     <form action="/user/login" method="post">
         <div><input type="text" name="uid" placeholder="아이디"></div>
@@ -28,8 +28,9 @@
         <div><input type="submit" value="로그인"></div>
     </form>
     <a href="/user/join">
-        <button>회원가입</button>
+        회원가입
     </a></div>
+<a href="/user/bridgeFind">아이디/비밀번호 찾기</a>
 <%-- 구글 로그인 버튼--%>
 <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
