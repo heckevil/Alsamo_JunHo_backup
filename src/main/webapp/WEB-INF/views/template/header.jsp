@@ -9,8 +9,8 @@
                 <li><a href="/user/logout">로그아웃</a></li>
             </c:when>
             <c:otherwise>
-                <li><a class="modalBtn" onclick="openModal();" href="#">로그인</a></li>
-                <li><a class="modalBtn" href="/user/join">회원가입</a></li>
+                <li><a id="modalBtn" onclick="openModal();" href="#">로그인</a></li>
+                <li><a href="/user/join">회원가입</a></li>
 
             </c:otherwise>
         </c:choose>
@@ -27,11 +27,13 @@
             <form class="loginForm" action="/user/login" method="post">
                 <div><input class="loginProperty" type="text" name="uid" placeholder="아이디"></div>
                 <div><input class="loginProperty" type="text" name="upw" placeholder="비밀번호"></div>
-                <div><input class="loginBtn1" type="submit" value="로그인"></div>
-                <div><a href="/user/join" class="loginlink">Join us</a></div>
-                <div><a href="/user/bridgeFind" class="loginlink">Wrong with Login?</a></div>
+                <div><input class="loginBtn" type="submit" value="로그인"></div>
+                <div><a href="/user/join">
+                    <button class="loginBtn" type="button">회원가입</button>
+                </a></div>
             </form>
-            <br>
+            <div class="or">------------------ or -----------------</div>
+
             <%-- 구글 로그인 버튼--%>
             <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
