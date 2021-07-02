@@ -56,7 +56,7 @@ public class UserController {
     public String logout(HttpSession hs) {
         hs.invalidate();
 
-        return "redirect:board/list";
+        return "redirect:/board/list";
     }
 
     @ResponseBody
