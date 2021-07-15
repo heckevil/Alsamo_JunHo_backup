@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="alsamo" />
         <module name="alsamo_junHo_backup" />
+        <module name="alsamo_test" />
       </profile>
     </annotationProcessing>
   </component>
